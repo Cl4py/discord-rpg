@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "title": "The zones array",
+  "description": "An array comprising of the zones in the game world",
+  "default": [],
+  "additionalItems": true,
+  "items": {
+    "$id": "#/items",
+    "type": "object",
+    "title": "The Items Schema",
+    "description": "An explanation about the purpose of this instance.",
+    "default": {},
+    "examples": [
+      {
+        "location": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "channelName": "doujab",
+        "description": "A beautiful town, in the heart of the land.",
+        "name": "Doujab",
+        "mobs": []
+      }
+    ],
+    "additionalProperties": true,
+    "required": [
+      "name",
+      "channelName",
+      "description",
+      "mobs",
+      "location"
+    ],
+    "properties": {
+      "name": {
+        "$id": "#/items/properties/name",
+        "type": "string",
+        "title": "Name",
+        "description": "The display name of the zone",
+        "default": "",
+        "examples": [
+          "Doujab"
+        ]
+      },
+      "channelName": {
+        "$id": "#/items/properties/channelName",
+        "type": "string",
+        "title": "Channel Name",
+        "description": "The discord-valid channel name of this schema.",
+        "default": "",
+        "pattern": "[\\w-]+",
+        "examples": [
+          "doujab"
+        ]
+      },
+      "description": {
+        "$id": "#/items/properties/description",
+        "type": "string",
+        "title": "Description",
+        "description": "A description about this game world zone",
+        "default": "",
+        "examples": [
+          "A beautiful town, in the heart of the land."
+        ]
+      },
+      "mobs": {
+        "$id": "#/items/properties/mobs",
+        "type": "array",
+        "title": "Mobs",
+        "description": "A list of the mobs that will roam this zone",
+        "default": [],
+        "examples": [
+          []
+        ],
+        "additionalItems": true,
+        "items": {
+          "$id": "#/items/properties/mobs/items",
+          "type": "string",
+          "title": "Mobs",
+          "description": "The name of the mob",
+          "default": null,
+          "examples": [
+            null
+          ]
+        }
+      },
+      "location": {
+        "$id": "#/items/properties/location",
+        "type": "object",
+        "title": "Location",
+        "description": "Contains the location of this zone",
+        "default": {},
+        "examples": [
+          {
+            "x": 0.0,
+            "y": 0.0
+          }
+        ],
+        "additionalProperties": true,
+        "required": [
+          "x",
+          "y"
+        ],
+        "properties": {
+          "x": {
+            "$id": "#/items/properties/location/properties/x",
+            "type": "integer",
+            "title": "X Position",
+            "description": "The x position of this location",
+            "default": 0,
+            "examples": [
+              0.0
+            ]
+          },
+          "y": {
+            "$id": "#/items/properties/location/properties/y",
+            "type": "integer",
+            "title": "Y Position",
+            "description": "The y position of this location",
+            "default": 0,
+            "examples": [
+              0.0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

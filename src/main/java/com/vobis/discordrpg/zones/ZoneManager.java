@@ -13,7 +13,9 @@ public class ZoneManager {
     public static final int MAX_PLAYERS_IN_CHANNEL = 15;
 
     private static final PermissionSet DEFAULT_PERMISSIONS = PermissionSet.of(
-            Permission.READ_MESSAGE_HISTORY
+            Permission.READ_MESSAGE_HISTORY,
+            Permission.VIEW_CHANNEL,
+            Permission.SEND_MESSAGES
     );
 
     public Mono<Void> movePlayerToZone(Member member, Zone zone) {
@@ -23,16 +25,16 @@ public class ZoneManager {
     }
 
     private Mono<TextChannel> findOrCreateChannel(Guild guild, Zone zone) {
-        return Mono.just(zone).flatMapIterable(Zone::getChannels).next()
+        return guild.getChannels()
+                .filter(guildChannel -> guildChannel.getName().equals(zone.getChannelName()))
+                .ofType(TextChannel.class)
+                .next()
                 .switchIfEmpty(createChannel(guild, zone));
-    }
-
-    private boolean memberCanJoin(PermissionSet permissions, TextChannel channel) {
-        return !permissions.contains(Permission.READ_MESSAGE_HISTORY);
     }
 
     private Mono<TextChannel> createChannel(Guild guild, Zone zone) {
         return guild.createTextChannel(spec -> spec.setName(zone.getName()))
-                .doOnNext(zone.getChannels()::add);
+                .flatMap(channel -> channel.createMessage("Welcome to " + zone.getName() + ". " + zone.getDescription())
+                        .thenReturn(channel));
     }
 }

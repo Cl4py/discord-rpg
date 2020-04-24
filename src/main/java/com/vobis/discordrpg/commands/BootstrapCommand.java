@@ -1,8 +1,6 @@
 package com.vobis.discordrpg.commands;
 
 import com.vobis.discordrpg.DiscordRPG;
-import com.vobis.discordrpg.zones.ZoneMap;
-import discord4j.core.object.PermissionOverwrite;
 import discord4j.core.object.entity.Channel;
 import discord4j.core.object.entity.Guild;
 import discord4j.core.object.entity.Message;
@@ -13,22 +11,28 @@ public class BootstrapCommand implements ICommand {
 
     @Override
     public Mono<Void> execute(Message message) {
-        return message.getChannel()
-                .flatMap(channel -> channel.createMessage("Bootstrapping..."))
-                .then(message.getGuild().flatMap(this::bootstrapGuild));
+        return message.getGuild()
+                .flatMap(guild -> {
+                    if (message.getContent().get().contains(guild.getName())) {
+                        return bootstrapGuild(guild);
+                    }
+
+                    return message.getChannel().flatMap(channel -> channel.createMessage("**WARNING** this command will completely wipe all channels and roles from this server. If you're sure you want to continue, run this command again with your server name as a parameter."));
+                })
+                .then();
+    }
+
+    private Mono<Void> bootstrapGuild(Guild guild) {
+        return clearAllChannels(guild)
+                .then(Mono.when(
+                        createLobby(guild),
+                        setupDefaultPermissions(guild),
+                        setupMembers(guild)
+                ));
     }
 
     private Mono<Void> clearAllChannels(Guild guild) {
         return guild.getChannels().flatMap(Channel::delete).then();
-    }
-
-    private Mono<Void> bootstrapGuild(Guild guild) {
-        return Mono.when(
-                clearAllChannels(guild),
-                createLobby(guild),
-                setupDefaultPermissions(guild),
-                setupMembers(guild)
-        );
     }
 
     private Mono<?> createLobby(Guild guild) {
@@ -41,7 +45,7 @@ public class BootstrapCommand implements ICommand {
         DiscordRPG instance = DiscordRPG.INSTANCE;
 
         return guild.getMembers()
-                .flatMap(member -> instance.getZoneManager().movePlayerToZone(member, ZoneMap.DOUJAB))
+                .concatMap(member -> instance.getZoneManager().movePlayerToZone(member, DiscordRPG.INSTANCE.getZoneMap().getZone("rithington")))
                 .then();
     }
 

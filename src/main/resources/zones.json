@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Rithington",
+    "channelName": "rithington",
+    "description": "A beautiful town, in the heart of the land.",
+    "mobs": [],
+    "location": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "name": "Kill Jester",
+    "channelName": "kill-jester",
+    "description": "ARe you sure?",
+    "mobs": [],
+    "location": {
+      "x": 0,
+      "y": 1
+    }
+  },
+  {
+    "name": "Rithington Wood",
+    "channelName": "rithington-wood",
+    "description": "A dense woodland just south of Rithington.",
+    "mobs": [],
+    "location": {
+      "x": 0,
+      "y": -1
+    }
+  }
+]
