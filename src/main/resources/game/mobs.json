@@ -1,0 +1,38 @@
+{
+  "imp": {
+    "name": "Imp",
+    "description": "A small magical creature.",
+    "stats": {
+      "strength": 1,
+      "defence": 1,
+      "health": 5
+    }
+  },
+  "rat": {
+    "name": "Rat",
+    "description": "A small hairy rodent with a long tail.",
+    "stats": {
+      "strength": 1,
+      "defence": 1,
+      "health": 3
+    }
+  },
+  "cow": {
+    "name": "Cow",
+    "description": "A large bovine.",
+    "stats": {
+      "strength": 1,
+      "defence": 2,
+      "health": 10
+    }
+  },
+  "cave spider": {
+    "name": "Cave Spider",
+    "description": "A giant creepy eight-legged creature with giant fangs and long legs.",
+    "stats": {
+      "strength": 16,
+      "defence": 20,
+      "health": 30
+    }
+  }
+}

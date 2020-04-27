@@ -11,6 +11,6 @@ public class Location {
     private int x, y;
 
     public Location add(int x, int y) {
-        return new Location(x, y);
+        return new Location(this.x + x, this.y + y);
     }
 }

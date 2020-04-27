@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Rithington",
+    "channelName": "rithington",
+    "description": "A beautiful town, in the heart of the land.",
+    "mobs": ["rat"],
+    "location": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "name": "Elderwood",
+    "channelName": "elderwood",
+    "description": "A small secluded community.",
+    "mobs": ["rat"],
+    "location": {
+      "x": 0,
+      "y": -1
+    }
+  },
+  {
+    "name": "Laveshire",
+    "channelName": "laveshire",
+    "description": "A dark modern city.",
+    "mobs": ["rat", "cow"],
+    "location": {
+      "x": 0,
+      "y": 1
+    }
+  },
+  {
+    "name": "Elsweyr",
+    "channelName": "elsweyr",
+    "description": "An enchanted forest, filled with mushrooms.",
+    "mobs": ["imp"],
+    "location": {
+      "x": -1,
+      "y": 0
+    }
+  },
+  {
+    "name": "Rithington Wood",
+    "channelName": "rithington-wood",
+    "description": "A dense woodland just south of Rithington.",
+    "mobs": ["rat", "imp"],
+    "location": {
+      "x": 1,
+      "y": 0
+    }
+  },
+  {
+    "name": "Rithington Dungeon",
+    "channelName": "rithington-dungeon",
+    "description": "A dark cave, surrounded by cobwebs.",
+    "mobs": ["cave spider"],
+    "location": {
+      "x": 1,
+      "y": 1
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "type": "category",
+    "name": "Lobby",
+    "defaultPermissions": ["READ_MESSAGE_HISTORY"],
+    "children": [
+      {
+        "type": "text",
+        "name": "welcome",
+        "defaultPermissions": ["SEND_MESSAGES"]
+      },
+      {
+        "type": "text",
+        "name": "lobby-chat"
+      },
+      {
+        "type": "text",
+        "name": "rules",
+        "text": [
+          "1. Thou shalt not steal",
+          "2. Thou shalt test"
+        ]
+      }
+    ]
+  }
+]

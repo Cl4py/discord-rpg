@@ -7,7 +7,7 @@
           <value>
             <SchemaInfo>
               <option name="name" value="Zones" />
-              <option name="relativePathToSchema" value="src/main/resources/zones.schema.json" />
+              <option name="relativePathToSchema" value="src/main/resources/schema/zones.schema.json" />
               <option name="patterns">
                 <list>
                   <Item>

@@ -1,0 +1,19 @@
+{
+  "en-gb": {
+    "command.notFound": "Command: **{0}** is not valid.",
+    "bootstrap.warning": "**WARNING** this command will completely wipe all channels and roles from this server. If you're sure you want to continue, run this command again with your server name as a parameter.",
+    "bootstrap.rules": "**Welcome to {0}!**\nTo begin your adventure, go to #lobby and run the `!join` command.\n\n**Rules**\n\n1. WIP\n2. wIP\n3. WIP",
+    "look.message": "{0}, you are currently in {1}. You look around and see: {2}\n{3}",
+    "look.direction": "To your {0}: {1}\n",
+    "look.nothing": "nothing.",
+    "travel.moved": "{0} travelled to {1}.",
+    "travel.nothing": "{0}, there is nothing that way.",
+    "travel.where": "{0}, in which direction would you like to travel? (north, east, south or west)",
+    "travel.invalidDirection": "{0}, please specify a valid direction to travel. (north, east, south or west)",
+    "attack.what": "{0}, what would you like to attack? ({1})",
+    "attack.invalidMob": "{0}, there is no mob by that name, please specify which mob you would like to attack. ({1})",
+    "attack.battleTitle": "Battle: {0} v {1}",
+    "player.killed": "{0} was killed.",
+    "skill.levelUp": "Congratulations! {0} just gained a {1} level! ({2})"
+  }
+}

@@ -4,17 +4,17 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ZoneMap {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper();
-    private static final String ZONES_FILE = "zones.json";
+    public static final List<String> DIRECTIONS = Arrays.asList("north", "east", "south", "west");
 
-    private Map<String, Zone> zoneNameMap = new HashMap<>();
-    private Map<Location, Zone> zoneLocationMap = new HashMap<>();
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+    private static final String ZONES_FILE = "game/zones.json";
+
+    private final Map<String, Zone> zoneNameMap = new HashMap<>();
+    private final Map<Location, Zone> zoneLocationMap = new HashMap<>();
 
     public ZoneMap() {
         try {
